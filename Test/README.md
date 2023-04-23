@@ -1,1 +1,0 @@
-# Van Plasmo Project Template
