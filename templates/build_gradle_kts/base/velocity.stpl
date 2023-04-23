@@ -1,0 +1,13 @@
+dependencies {
+    compileOnly(libs.velocity)
+    kapt(libs.velocity)
+    <% if plasmo_lib { %>compileOnly(libs.plasmolib.velocity)<% } %>
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+tasks.build {
+    dependsOn(tasks.shadowJar.get())
+}

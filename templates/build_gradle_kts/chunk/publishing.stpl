@@ -1,0 +1,19 @@
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
+    repositories {
+        maven("https://repo.plo.su/public") {
+            name = "plasmo"
+
+            if (findProperty("plasmoUsername") != null) {
+                credentials(PasswordCredentials::class)
+                authentication {
+                    create<BasicAuthentication>("basic")
+                }
+            }
+        }
+    }
+}

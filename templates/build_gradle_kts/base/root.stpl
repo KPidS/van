@@ -1,0 +1,7 @@
+plugins {
+    idea
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.shadow)
+    <% if maven_publish { %>`maven-publish`<% } %>
+}

@@ -1,0 +1,14 @@
+group = mavenGroup
+version = buildVersion
+
+repositories {
+    <% include!("../chunk/repositories.stpl"); %>
+}
+
+dependencies {
+    compileOnly(kotlin("stdlib"))
+}
+
+<% if maven_publish { %>
+<% include!("../chunk/publishing.stpl"); %>
+<% } %>

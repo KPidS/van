@@ -1,0 +1,7 @@
+<% include!("base/all.stpl"); %>
+
+<% include!("base/root.stpl"); %>
+
+<% include!("base/non_hybrid_root.stpl"); %>
+
+<% include!("base/paper.stpl"); %>

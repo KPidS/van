@@ -1,0 +1,10 @@
+pub mod scaffold_project;
+pub mod scaffold_root;
+pub mod scaffold_settings_gradle_kts;
+pub mod scaffold_gradle_properties;
+pub mod scaffold_src;
+pub mod scaffold_config;
+pub mod scaffold_module;
+pub mod scaffold_locale;
+pub mod scaffold_plugin_main;
+pub mod scaffold_build_gradle_kts;

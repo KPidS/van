@@ -1,0 +1,38 @@
+plugins {
+    alias(libs.plugins.pluginyml)
+    <% if run_paper { %>alias(libs.plugins.runpaper)<% } %>
+}
+
+bukkit {
+    main = "${group}.${rootProject.name}Plugin"
+    apiVersion = "1.19"
+    authors = listOf("Plasmo")
+    depend = listOf(
+        "MCKotlin-Paper",
+        <% if plasmo_lib { %>"PlasmoVerseLib",<% } %>
+    )
+}
+
+dependencies {
+    compileOnly(libs.paper)
+    <% if plasmo_lib { %>compileOnly(libs.plasmolib.paper)<% } %>
+}
+
+tasks {
+
+    processResources {
+        filteringCharset = Charsets.UTF_8.name()
+    }
+
+    shadowJar {
+        archiveBaseName.set(rootProject.name)
+        archiveClassifier.set("")
+        archiveAppendix.set("")
+    }
+
+    <% if run_paper { %>
+    runServer {
+        minecraftVersion(libs.versions.minecraft.get())
+    }
+    <% } %>
+}
