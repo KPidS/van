@@ -11,7 +11,7 @@ pub fn scaffold_gradle_properties(
     let contents = [
         format!("mavenGroup={}.{}", MAVEN_GROUP, &options.flat_name),
         format!("mavenArtifactId={}", &options.flat_name),
-        format!("version=1.0.0"),
+        format!("buildVersion=1.0.0"),
     ].join("\n");
 
     write(path!(&options.path / "gradle.properties"), contents)?;
