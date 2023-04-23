@@ -1,5 +1,5 @@
 use std::ffi::OsStr;
-use std::fs::write;
+use std::fs::{create_dir_all, write};
 use path_macro::path;
 use sailfish::TemplateOnce;
 use serde::de::Unexpected::Option;
@@ -27,7 +27,9 @@ pub fn scaffold_build_gradle_kts(
         project_type: options.project_type.clone(),
     }.render_once()?;
 
-    write(path!(options.path / "libs.versions.toml"), libs_contents)?;
+    create_dir_all(path!(options.path / "gradle"))?;
+
+    write(path!(options.path / "gradle" / "libs.versions.toml"), libs_contents)?;
 
     match &options.project_type {
         ProjectType::Paper => scaffold_paper_build_gradle_kts(options)?,

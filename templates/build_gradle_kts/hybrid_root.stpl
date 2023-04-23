@@ -43,7 +43,9 @@ subprojects {
 }
 
 allprojects {
-    <% include!("chunk/repositories.stpl"); %>
+    repositories {
+        <% include!("chunk/repositories.stpl"); %>
+    }
 }
 
 tasks {
